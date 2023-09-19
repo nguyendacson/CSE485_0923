@@ -1,3 +1,4 @@
+
 <!-- Ý 1  -->
 <?php
 $arr = [2, 5, 6, 9, 2, 5, 6, 12, 5];
@@ -115,7 +116,39 @@ foreach ($arrs as $country => $capital) {
     $ab = $a['a']['b'];
     $abc = $a['a']['c'];
     echo 'thông tin của phần tử có key là a là : ' . $ab . ' ' . $abc;
-   ;
+    echo '<br>';
+    echo '<br>';
+?>
+
+<!-- Ý 6 -->
+<?php 
+$keys = array(
+    "field1" => "first",
+    "field2" => "second",
+    "field3" => "third"
+);
+
+$values = array(
+    "field1value" => "dinosaur",
+    "field2value" => "pig",
+    "field3value" => "platypus"
+);
+
+$keysAndValues = array_combine($keys, $values);
+
+print_r($keysAndValues);
 
 ?>
-<!-- Ý 6 -->
+
+<!-- Ý 7 -->
+<?php
+echo '<br>' . '<br>';
+    $array3 = [12, 5, 200, 10, 125, 60, 90, 345, -123, 100, -125, 0];
+    echo 'các số thỏa mãn điều kiện bài là: ' ;
+    foreach ($array3 as $number) 
+    {
+        if ($number >= 100 && $number <= 200 && $number % 5 == 0) {
+            echo  $number . ' ';
+        }
+    }
+?>
