@@ -152,3 +152,217 @@ echo '<br>' . '<br>';
         }
     }
 ?>
+<!-- Ý 8 -->
+<?php 
+
+echo '<br>' . '<br>';
+ $array4 = ['programming', 'php', 'basic', 'dev', 'is', 'program is PHP'];
+
+    $kitungannhat = '';
+    $kitudainhat = '';
+    $tongkitu = 0 ;
+
+    foreach($array4 as $demstring)
+    {
+        $doDaistring = strlen($demstring);
+
+        if($doDaistring > strlen($kitungannhat))
+        {
+            $kitudainhat = $doDaistring;
+        }
+
+        if($doDaistring < strlen($kitungannhat))
+        {
+            $kitungannhat = $doDaistring;
+        }
+
+        $tongkitu += $doDaistring;
+    }
+
+    echo "Chỗi lớn nhất là " . $kitungannhat . ", độ dài = " . strlen($kitudainhat) . '<br>' ;
+    echo "Chuỗi bé nhất là " . $kitudainhat . ", độ dài = " . strlen($kitudainhat) . '<br>' ;
+?>
+
+<!-- Ý 9 -->
+
+<?php 
+    $arrs1 = ['1', 'B', 'C', 'E'];
+    $arrs2 = ['a','0',Null,False];
+
+    $arrs1 = array_map('strtolower',$arrs1);
+    print_r($arrs1) ;
+
+    echo  '<br>';
+
+    $arrs2 = array_map(function ($kieuchu0)
+    {
+        if(is_string($kieuchu0))
+        {
+            return strtolower($kieuchu0);
+        }
+        else if ($kieuchu0 === Null)
+        {
+            return 'null';
+        }
+        else if ($kieuchu0 === False)
+        {
+            return 'false';
+        }
+        else
+        {
+            return $kieuchu0;
+        }
+    },$arrs2);
+
+    print_r($arrs2);
+
+    echo  '<br>';
+?>
+
+<!-- Ý 10  -->
+<?php 
+    $arrs3 = ['1','b','c','d'];
+    $arrs4 = ['a',0,null,false];
+
+    $arrs3 = array_map('strtoupper', $arrs3);
+    print_r($arrs3);
+echo '<br>';
+    $arrs4 = array_map(function ($kieuchu) 
+    {
+    if(is_string($kieuchu))
+    {
+        return strtoupper($kieuchu);
+    }
+    else if ($kieuchu === null)
+    {
+        return 'Null';
+    }
+    else if ($kieuchu === false)
+    {
+        return 'Else';
+    }
+    else
+    {
+        return $kieuchu;
+    }
+    }, $arrs4 );
+
+    print_r($arrs4);
+    echo '<br>';
+?>
+
+<!-- Ý 11 -->
+<?php
+$array = array(1,2,3,4,5);
+
+if(isset($array[3]))
+{
+    unset($array[3]);
+}
+print_r($array);
+echo '<br>';
+?>
+
+<!-- Ý 12 -->
+<?php
+
+$numbers = [
+    'key1' => 12,
+    'key2' => 30,
+    'key3' => 4,
+    'key4' => -123, 
+    'key5' => 1234, 
+    'key6' => -12565,
+];
+
+$firstptu = reset($numbers);
+echo "phần tử đầu của mảng là: " . $firstptu ."<br>";
+$endptu = end($numbers);
+echo "phần tử cuối của mảng là: " .$endptu ."<br>";
+
+$biennhonhat = PHP_INT_MAX;
+$bienlonnhat = 0;
+$bientong = 0;
+
+foreach($numbers as $bienthu => $giatribien)
+{
+    if($giatribien < $biennhonhat)
+    {
+        $biennhonhat = $giatribien;
+    }
+    elseif($giatribien > $bienlonnhat)
+    {
+        $bienlonnhat = $giatribien;
+    }
+
+    $bientong += $giatribien;
+}
+
+echo "Biến lớn nhất là: " . $bienlonnhat . '<br>';
+echo "Biến nhỏ nhất là: " . $biennhonhat . '<br>';
+echo "Tổng các phần tử : " . $bientong . '<br>';
+
+
+arsort($numbers);
+echo "Mảng sắp xếp theo thứ tự giá trị giảm dần: " . '<br>';
+print_r($numbers) ;
+
+
+asort($numbers);
+echo "Mảng sắp xếp theo thứ tự giá trị tăng dần: " . '<br>';
+print_r($numbers);
+
+krsort($numbers);
+echo "Mảng sắp xếp theo thứ tự key giảm dần: " . '<br>';
+print_r($numbers);
+
+ksort($numbers);
+echo "Mảng sắp xếp theo thứ tự key tăng dần: " . '<br>';
+print_r($numbers);
+?>
+
+<!-- Ý 13 -->
+<?php
+    $numbers = [78, 60, 62, 68, 71, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, 72,
+    65, 74, 62, 62, 65, 64, 68, 73, 75, 79, 73];
+    
+    $total = array_sum($numbers);
+
+    $cout = count($numbers);
+
+    $average = $total/$cout;
+
+    echo '<br>';
+    echo "Trung bình: " . $average .'<br>';
+
+    echo "Các số lớn hơn số trung bình là:";
+    $sumTB = 0;
+    foreach ($numbers as $ktra) {
+        if ($ktra > $average){
+             $sumTB = $ktra ;
+        }
+        echo $sumTB .";";
+    }
+?>
+
+<!-- Ý 14 -->
+<?php 
+$arrayss1 = [
+ [77, 87],
+ [23, 45]
+];
+$arrayss2 = [
+ 'giá trị 1', 'giá trị 2'
+];
+$result = [];
+
+for ($i = 0; $i < count($arrayss1); $i++) {
+    $result[] = array_merge([$arrayss2[$i]], $arrayss1[$i]);
+}
+
+print_r($result);
+
+?>
+
+
+
